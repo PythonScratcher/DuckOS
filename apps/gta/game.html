@@ -59,67 +59,56 @@
 	</style>
 	<script>
 		window.onload = function() {
-			if (!('GameBoyAdvance' in window)) {
-				alert('Your browser does not support JavaScript. Please enable JavaScript or use a different browser to play this game.');
-				return;
-			}
-			var emulator = new GameBoyAdvance();
-			var rom = new FileReader();
-			rom.onloadstart = function() {
-				document.getElementById('loading').style.display = 'block';
-			};
-			rom.onloadend = function() {
-				document.getElementById('loading').style.display = 'none';
-				emulator.setRom(rom.result);
-				emulator.runStable();
-			};
-			rom.readAsArrayBuffer('gta.gba');
-			
-			var canvas = document.getElementById('screen');
-			var context = canvas.getContext('2d');
-			
-			function updateScreen() {
-				var scaleX = window.innerWidth / canvas.width;
-				var scaleY = window.innerHeight / canvas.height;
-				var scale = Math.min(scaleX, scaleY);
-				var offsetX = (window.innerWidth - canvas.width * scale) / 2;
-				var offsetY = (window.innerHeight - canvas.height * scale) / 2;
-				canvas.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px) scale(' + scale + ')';
-				if (scaleX > scaleY) {
-					var borderSize = (window.innerWidth - canvas.width * scaleY) / 2;
-					document.getElementById('border-left').style.width = borderSize + 'px';
-					document.getElementById('border-right').style.width = borderSize + 'px';
-					document.getElementById('border-top').style.display = 'block';
-					document.getElementById('border-bottom').style.display = 'block';
-								} else if (scaleY > scaleX) {
-					var borderSize = (window.innerHeight - canvas.height * scaleX) / 2;
-					document.getElementById('border-top').style.height = borderSize + 'px';
-					document.getElementById('border-bottom').style.height = borderSize + 'px';
-					document.getElementById('border-left').style.display = 'block';
-					document.getElementById('border-right').style.display = 'block';
-				} else {
-					document.getElementById('border-top').style.display = 'none';
-					document.getElementById('border-bottom').style.display = 'none';
-					document.getElementById('border-left').style.display = 'none';
-					document.getElementById('border-right').style.display = 'none';
-				}
-				context.imageSmoothingEnabled = false;
-				context.drawImage(emulator.video, 0, 0, 240, 160, 0, 0, canvas.width, canvas.height);
-				window.requestAnimationFrame(updateScreen);
-			}
-			window.addEventListener('resize', function() {
-				updateScreen();
-			});
-			updateScreen();
-		}
-	</script>
-</head>
-<body>
-	<div class="border" id="border-left"></div>
-	<div class="border" id="border-right"></div>
-	<div class="border" id="border-top"></div>
-	<div class="border" id="border-bottom"></div>
-	<canvas id="screen" width="240" height="160"></canvas>
-	<div id="loading">Loading...</div>
-</body>
-</html>
+  if (!('GameBoyAdvance' in window)) {
+    alert('Your browser does not support JavaScript. Please enable JavaScript or use a different browser to play this game.');
+    return;
+  }
+  var emulator = new GameBoyAdvance();
+  var rom = new FileReader();
+  rom.onloadstart = function() {
+    document.getElementById('loading').style.display = 'block';
+  };
+  rom.onloadend = function() {
+    document.getElementById('loading').style.display = 'none';
+    emulator.setRom(rom.result);
+    emulator.runStable();
+  };
+  rom.readAsArrayBuffer('gta.gba');
+  
+  var canvas = document.getElementById('screen');
+  var context = canvas.getContext('2d');
+  
+  function updateScreen() {
+    var scaleX = window.innerWidth / canvas.width;
+    var scaleY = window.innerHeight / canvas.height;
+    var scale = Math.min(scaleX, scaleY);
+    var offsetX = (window.innerWidth - canvas.width * scale) / 2;
+    var offsetY = (window.innerHeight - canvas.height * scale) / 2;
+    canvas.style.transform = 'translate(' + offsetX + 'px, ' + offsetY + 'px) scale(' + scale + ')';
+    if (scaleX > scaleY) {
+      var borderSize = (window.innerWidth - canvas.width * scaleY) / 2;
+      document.getElementById('border-left').style.width = borderSize + 'px';
+      document.getElementById('border-right').style.width = borderSize + 'px';
+      document.getElementById('border-top').style.display = 'block';
+      document.getElementById('border-bottom').style.display = 'block';
+    } else if (scaleY > scaleX) {
+      var borderSize = (window.innerHeight - canvas.height * scaleX) / 2;
+      document.getElementById('border-top').style.height = borderSize + 'px';
+      document.getElementById('border-bottom').style.height = borderSize + 'px';
+      document.getElementById('border-left').style.display = 'block';
+      document.getElementById('border-right').style.display = 'block';
+    } else {
+      document.getElementById('border-top').style.display = 'none';
+      document.getElementById('border-bottom').style.display = 'none';
+      document.getElementById('border-left').style.display = 'none';
+      document.getElementById('border-right').style.display = 'none';
+    }
+    context.imageSmoothingEnabled = false;
+    context.drawImage(emulator.video, 0, 0, 240, 160, 0, 0, canvas.width, canvas.height);
+    window.requestAnimationFrame(updateScreen);
+  }
+  window.addEventListener('resize', function() {
+    updateScreen();
+  });
+  updateScreen();
+};
