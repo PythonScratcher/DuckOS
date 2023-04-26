@@ -7,6 +7,8 @@
         {"name": "Discord", "icon": "apps/discord/icon.png", "path": "apps/discord"},
         {"name": "Minecraft 1.5.2", "icon": "apps/minecraft/icon.png", "path": "apps/minecraft"},
         {"name": "GameBoy Advance Emulator", "icon": "apps/gta/icon.png", "path": "apps/gta"},
+        {"name": "Old GameBoy Advance Emulator", "icon": "apps/gta/icon.png", "path": "apps/gba"},
+        {"name": "Old Chat", "icon": "chat.ico", "path": "apps/oldchat"}
         {"name": "Shellshockers", "icon": "apps/shellshock/icon.png", "path": "apps/shellshock"},
         {"name": "Python 3.10.7", "icon": "apps/python3/icon.png", "path": "apps/python3"},
         {"name": "Process manager", "icon": "apps/processmanager/icon.png", "path": "apps/processmanager"},
