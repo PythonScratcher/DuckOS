@@ -3,8 +3,8 @@
 </p>
 <p align="center">
 <a href="https://discord.gg/2JbtU5HnrY"><img height="30px" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"><img></a>
-<a href="https://github.com/GikitSRC"><img height="30px" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"><img></a>
-<a href="https://twitter.com/ACompleteNewb"><img height="30px" src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"><img></a>
+<a href="https://github.com/PythonScratcher/DuckOS"><img height="30px" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"><img></a>
+<a href="https://twitter.com/PythonScratcher"><img height="30px" src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"><img></a>
 </p>
 <h1 align="center">DuckOS</h1>
 <h5 align="center">DuckOS is a online web-based operating system written mostly with Java and HTML. Proxy backend from Ultraviolet<br>App store is coming soon, and put some app suggestions in Issues</h5>
